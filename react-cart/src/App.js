@@ -1,18 +1,32 @@
-//feature 1
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import data from './data.json';
+import Products from './components/Products';
 
-function App() {
-  return (
-    <div className="App">
-      <header><a href='/'>React-Redux-Cart</a></header>
-      <main>
-        Products
-      </main>
-      <footer>Footer</footer>
-    </div>
-  );
+const App = () => {
+    const [products, setProducts] = useState('')
+
+    useEffect(()=>{
+        setProducts(data.products)
+    },[products])
+    return ( 
+        <>
+        <header>
+            <a href='/'>React Cart</a>
+        </header>
+        <hr/>
+        <main>
+            <Products products={data.products}/>
+            <hr/>
+            <div>
+                Cart
+            </div>
+        </main>
+        <hr/>
+        <footer>
+            Footer
+        </footer>
+        </>
+     );
 }
-
+ 
 export default App;
