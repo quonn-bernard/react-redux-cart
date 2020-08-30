@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import useCustomForm from '../hooks/useCustomForm'
+import Fade from 'react-reveal/Fade'
 
 const Cart = ({cartItems, remove, createOrder}) => {
     const [showCheckout, setShowCheckout] = useState(false)
@@ -27,8 +28,10 @@ const Cart = ({cartItems, remove, createOrder}) => {
     }
 
     return ( 
-        <div>
-            {cartItems.length === 0 ? 'cart is empty': <ul> ${cartItems.map(item=>(
+        
+            <div>
+                
+            {cartItems.length === 0 ? 'cart is empty': <Fade left cascade> <ul> {cartItems.map(item=>(
                <li key={item._id}>
                    <div>
                        <img src={item.image} />
@@ -37,17 +40,17 @@ const Cart = ({cartItems, remove, createOrder}) => {
                        <button onClick={()=>remove(item)}>Remove</button>
                    </div>
                </li> 
-            ))}</ul>  }
+            ))}</ul> </Fade> }
             {" "} | 
             Cart Total:
             ${cartItems.reduce((a,c) => a + c.price * c.count, 0)}
             <br/>
-            {showCheckout && cartItems.length && <form onSubmit={(e)=>addOrder(e)}>
+            {showCheckout && cartItems.length && <Fade left ><form onSubmit={(e)=>addOrder(e)}>
                 <input type="email" placeholder="Enter Email" name="email" onChange={(e)=> handleChange(e)}/>
                 <input type="text" placeholder="Enter Name" name="name" required onChange={(e)=> handleChange(e)} />
                 <input type="text" placeholder="Enter Address" name="address" required onChange={(e)=> handleChange(e)}/>
                 <button type="submit" >CHECKOUT</button>
-            </form>}
+            </form></Fade>}
             {" "}
             {cartItems.length && <button style={{margin: '15px 0 0 0'}} onClick={()=> showForm()}>{showCheckout ? 'Continue Shopping' : 'Checkout'}</button>}
             </div>
