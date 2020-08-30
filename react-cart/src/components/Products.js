@@ -1,13 +1,13 @@
 import React from 'react';
-const Products = (props) => {
-    console.log(props.products)
+const Products = ({products, add}) => {
+    
     const renderProducts = () => {
-        return props.products.map(product => {
+        return products.map(product => {
             return <li key={product._id}>
                 <img src={product.image}></img>
                 <p><a href='#'>{product.title}</a></p>
                 <p><strong>${product.price}.00</strong></p>
-                <button>ADD TO CART</button>
+                <button onClick={()=>add(product)}>ADD TO CART</button>
             </li>
         })
     }
