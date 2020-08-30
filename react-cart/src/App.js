@@ -28,6 +28,7 @@ const App = () => {
           items.push({...product, count: 1})
       }
       setCartItems(items)
+    //   localStorage.setItem("cartItems", JSON.stringify(items))
   }
 
   const removeFromCart = (item) => {
@@ -55,6 +56,10 @@ const App = () => {
         )
     );
   };
+
+  const createOrder = (order) => {
+      alert('Click "OK" to confirm order!',  order)
+  }
 
   const filterProducts = (e) => {
     if (e.target.value === "") {
@@ -85,7 +90,7 @@ const App = () => {
       <main>
         <Products add={addtoCart} products={products} />
         <hr />
-        <div><Cart remove={removeFromCart} cartItems={cartItems} /></div>
+        <div><Cart createOrder={createOrder} remove={removeFromCart} cartItems={cartItems} /></div>
       </main>
       <hr />
       <footer>Footer</footer>
