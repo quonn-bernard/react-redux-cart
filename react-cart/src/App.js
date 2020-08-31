@@ -5,7 +5,7 @@ import Filter from "./components/Filter";
 import Cart from "./components/Cart";
 import store from "./store";
 import { Provider } from "react-redux";
-import fetchProducts from "./actions/productActions";
+import { fetchProducts } from "./actions/productActions";
 const App = () => {
   const [products, setProducts] = useState(data.products);
   const [size, setSize] = useState("");
@@ -35,45 +35,13 @@ const App = () => {
     const items = cartItems.slice();
     setCartItems(items.filter((elem) => elem._id !== item._id));
   };
-  const sortProducts = (e) => {
-    const sort = e.target.value;
-    setSort(sort);
-    setProducts(
-      products
-        .slice()
-        .sort((a, b) =>
-          sort === "lowest"
-            ? a.price < b.price
-              ? 1
-              : -1
-            : sort === "highest"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : a._id < b._id
-            ? 1
-            : -1
-        )
-    );
-  };
+  
 
   const createOrder = (order) => {
     alert('Click "OK" to confirm order!', order);
   };
 
-  const filterProducts = (e) => {
-    if (e.target.value === "") {
-      setProducts(data.products);
-      setSize(e.target.value);
-    } else {
-      setSize(e.target.value);
-      setProducts(
-        data.products.filter(
-          (product) => product.availableSizes.indexOf(e.target.value) >= 0
-        )
-      );
-    }
-  };
+  
 
   return (
     <>
@@ -82,10 +50,7 @@ const App = () => {
           <a href="/">React Cart</a>
         </header>
         <Filter
-          size={size}
-          filter={filterProducts}
-          sort={sortProducts}
-          count={data.products.length}
+          
         />
         <hr />
         <main>

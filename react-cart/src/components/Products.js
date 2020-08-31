@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Fade, Zoom } from "react-reveal";
 import Modal from "react-modal";
 import { connect, useDispatch } from "react-redux";
-import fetchProducts from "../actions/productActions";
+import { fetchProducts } from "../actions/productActions";
 
 const Products = ({ products, add }) => {
   const [product, setProduct] = useState(null);
@@ -20,8 +20,6 @@ const dispatch = useDispatch()
     dispatch(fetchProducts());
   }, [dispatch]);
   
-// products ? console.log(products.length) : console.log('no prods')
-//   console.log(Object.keys(products).length)
   const renderProducts = () => {
     return products.map((product) => {
       return (
@@ -29,7 +27,6 @@ const dispatch = useDispatch()
           <a href={"#" + product._id} onClick={() => openModal(product)}>
             <img src={product.image} />
           </a>
-
           <p>
             <a href="#">{product.title}</a>
           </p>
@@ -86,6 +83,6 @@ const dispatch = useDispatch()
   );
 };
 
-export default connect((state) => ({ products: state.products.items }), {
+export default connect((state) => ({ products: state.products.filteredItems }), {
   fetchProducts,
 })(Products);
