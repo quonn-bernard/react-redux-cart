@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Fade, Zoom } from "react-reveal";
 import Modal from "react-modal";
+import { connect, useDispatch } from "react-redux";
+import fetchProducts from "../actions/productActions";
 
 const Products = ({ products, add }) => {
   const [product, setProduct] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const openModal = (product) => {
     setProduct(product);
   };
@@ -13,12 +14,20 @@ const Products = ({ products, add }) => {
     setProduct(null);
   };
 
+const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+  
+// products ? console.log(products.length) : console.log('no prods')
+//   console.log(Object.keys(products).length)
   const renderProducts = () => {
     return products.map((product) => {
       return (
         <li key={product._id}>
           <a href={"#" + product._id} onClick={() => openModal(product)}>
-            <img src={product.image}></img>
+            <img src={product.image} />
           </a>
 
           <p>
@@ -35,8 +44,9 @@ const Products = ({ products, add }) => {
 
   return (
     <div>
-      <Fade top cascade>
-        <ul>{renderProducts()}</ul>
+      <Fade bottom cascade>
+      {/* <div>Loading...</div> */}
+        <ul>{products ? renderProducts() : <div>Loading...</div> }</ul>
       </Fade>
       {product && (
         <Modal isOpen={true}>
@@ -76,20 +86,6 @@ const Products = ({ products, add }) => {
   );
 };
 
-export default Products;
-// <li key={product._id}>
-//     <div>
-//         <a href={"#" + product}>
-//             <img src={product.image} alt={product.title}></img>
-//             <p>
-//                 {product.title}
-//             </p>
-//         </a>
-//         <div>
-//             {product.price}
-//         </div>
-//         <button>
-//             Add To Cart
-//         </button>
-//     </div>
-// </li>
+export default connect((state) => ({ products: state.products.items }), {
+  fetchProducts,
+})(Products);
