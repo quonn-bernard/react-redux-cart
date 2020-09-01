@@ -15,21 +15,7 @@ const App = () => {
 //   useEffect(() => {}, [products]);
 
 
-  const addtoCart = (product) => {
-    const items = cartItems.slice();
-    let alreadyInCart = false;
-    items.forEach((element) => {
-      if (element._id === product._id) {
-        element.count++;
-        alreadyInCart = true;
-      }
-    });
-    if (!alreadyInCart) {
-      items.push({ ...product, count: 1 });
-    }
-    setCartItems(items);
-    //   localStorage.setItem("cartItems", JSON.stringify(items))
-  };
+  
 
   const removeFromCart = (item) => {
     const items = cartItems.slice();
@@ -37,9 +23,6 @@ const App = () => {
   };
   
 
-  const createOrder = (order) => {
-    alert('Click "OK" to confirm order!', order);
-  };
 
   
 
@@ -54,13 +37,11 @@ const App = () => {
         />
         <hr />
         <main>
-          <Products add={addtoCart} />
+          <Products />
           <hr />
           <div>
             <Cart
-              createOrder={createOrder}
-              remove={removeFromCart}
-              cartItems={cartItems}
+        
             />
           </div>
         </main>
