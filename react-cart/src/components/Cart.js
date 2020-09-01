@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import useCustomForm from '../hooks/useCustomForm'
 import Fade from 'react-reveal/Fade'
+import { connect, useDispatch } from 'react-redux'
+import { removeFromCart } from '../actions/cartActions'
 
 const Cart = ({cartItems, remove, createOrder}) => {
+    const dispatch = useDispatch()
     const [showCheckout, setShowCheckout] = useState(false)
     const initialValues = {
         email: "",
@@ -22,6 +25,10 @@ const Cart = ({cartItems, remove, createOrder}) => {
         handleSubmit(e)
     }
     
+    const removeItem = (item) => {
+        dispatch(removeFromCart(item))
+    }
+
     const showForm = () => {
         console.log('clicked', showCheckout)
         setShowCheckout(prevState => !prevState)
@@ -37,7 +44,7 @@ const Cart = ({cartItems, remove, createOrder}) => {
                        <img src={item.image} />
                        <strong>{item.title}</strong>
                        <p>count:{item.count}</p>
-                       <button onClick={()=>remove(item)}>Remove</button>
+                       <button onClick={()=>removeItem(item)}>Remove</button>
                    </div>
                </li> 
             ))}</ul> </Fade> }
@@ -58,4 +65,7 @@ const Cart = ({cartItems, remove, createOrder}) => {
      );
 }
  
-export default Cart;
+export default connect((state) => ({
+    cartItems: state.cart.cartItems,
+}),
+{removeFromCart})(Cart);

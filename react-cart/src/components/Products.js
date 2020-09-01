@@ -3,6 +3,7 @@ import { Fade, Zoom } from "react-reveal";
 import Modal from "react-modal";
 import { connect, useDispatch } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
+import {addToCart} from "../actions/cartActions";
 
 const Products = ({ products, add }) => {
   const [product, setProduct] = useState(null);
@@ -15,7 +16,9 @@ const Products = ({ products, add }) => {
   };
 
 const dispatch = useDispatch()
-
+const addItem = (product) => {
+    dispatch(addToCart(product))
+}
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -33,7 +36,7 @@ const dispatch = useDispatch()
           <p>
             <strong>${product.price}.00</strong>
           </p>
-          <button onClick={() => add(product)}>ADD TO CART</button>
+          <button onClick={() => addItem(product)}>ADD TO CART</button>
         </li>
       );
     });
@@ -69,7 +72,7 @@ const dispatch = useDispatch()
               </p>
               <button
                 onClick={() => {
-                  add(product);
+                  addToCart(product);
                   closeModal();
                 }}
               >
@@ -85,4 +88,5 @@ const dispatch = useDispatch()
 
 export default connect((state) => ({ products: state.products.filteredItems }), {
   fetchProducts,
+  addToCart
 })(Products);
