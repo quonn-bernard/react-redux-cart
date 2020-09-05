@@ -1,0 +1,54 @@
+.navbar {
+  margin-top: -20px;
+  z-index: 100;
+}
+
+main .products {
+  column-gap: 10px;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  row-gap: 40px;
+}
+
+main .products img {
+  margin-bottom: 10px;
+}
+
+main .cart {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+  border: 1px solid;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba 0, 0, 0, 0.45;
+  height: auto;
+  max-height: 750px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: auto;
+}
+
+main .cart Button {
+  border: thin solid rgb 128, 128, 128;
+}
+
+main .cart .checkoutbtn {
+  bottom: 10;
+  position: relative;
+}
+
+main .cart form {
+  margin: 1rem 0;
+}
+
+main .cart img {
+  height: 50px;
+  width: auto;
+}
+
+main .cart input {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}

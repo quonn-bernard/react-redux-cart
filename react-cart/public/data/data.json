@@ -2,48 +2,48 @@
   "products": [
     {
       "_id": "dress1",
-      "image": "/images/dress1.jpeg",
-      "title": "Dress 1",
+      "image": "https://picsum.photos/300/300?random=1",
+      "title": "Random image",
       "description": "about dress 1",
       "availableSizes": ["S","M","L","XL"],
       "price": 30.0
     },
     {
       "_id": "dress2",
-      "image": "/images/dress2.jpeg",
-      "title": "Dress 2",
+      "image": "https://picsum.photos/300/300?random=2",
+      "title": "Some other picture",
       "description": "about dress 2",
       "availableSizes": ["S","L", "XL"],
       "price": 50.0
     },
     {
         "_id": "dress3",
-        "image": "/images/dress3.jpeg",
-        "title": "Dress 3",
+        "image": "https://picsum.photos/300/300?random=3",
+        "title": "Yet another random photo",
         "description": "about dress 3",
         "availableSizes": ["S", "L", "XL", "M"],
         "price": 10.0
       },
       {
         "_id": "dress4",
-        "image": "/images/dress4.jpeg",
-        "title": "Dress 4",
+        "image": "https://picsum.photos/300/300?random=4",
+        "title": "Not the same photograph",
         "description": "about dress 4",
         "availableSizes": ["S","M","L", "XL", "XXL"],
         "price": 150.0
       },
       {
         "_id": "dress5",
-        "image": "/images/dress5.jpeg",
-        "title": "Dress 5",
+        "image": "https://picsum.photos/300/300?random=5",
+        "title": "Yet another rando...",
         "description": "about dress 5",
         "availableSizes": ["M","L", "XXL"],
         "price": 75.0
       },
       {
         "_id": "dress6",
-        "image": "/images/dress6.jpeg",
-        "title": "Dress 6",
+        "image": "https://picsum.photos/300/300?random=6",
+        "title": "The Last pic, Finally!!",
         "description": "about dress 6",
         "availableSizes": ["S","XXL"],
         "price": 75.0

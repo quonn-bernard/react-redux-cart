@@ -1,52 +1,30 @@
-import React, { useEffect, useState } from "react";
-import data from "./data.json";
+import React, { useState } from "react";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
 import store from "./store";
 import { Provider } from "react-redux";
-import { fetchProducts } from "./actions/productActions";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css";
+import AppNav from "./components/Navbar";
+
 const App = () => {
-  const [products, setProducts] = useState(data.products);
-  const [size, setSize] = useState("");
-  const [sort, setSort] = useState("");
-  const [cartItems, setCartItems] = useState([]);
-
-//   useEffect(() => {}, [products]);
-
-
-  
-
-  const removeFromCart = (item) => {
-    const items = cartItems.slice();
-    setCartItems(items.filter((elem) => elem._id !== item._id));
-  };
-  
-
-
-  
+  const [count, setCount] = useState();
+  store.subscribe(() => {
+    setCount(store.getState().cart.cartItems.reduce((a, c) => a + c.count, 0));
+  });
 
   return (
     <>
       <Provider store={store}>
-        <header>
-          <a href="/">React Cart</a>
-        </header>
-        <Filter
-          
-        />
-        <hr />
-        <main>
-          <Products />
-          <hr />
-          <div>
-            <Cart
+        <AppNav count={count} />
         
-            />
-          </div>
-        </main>
         <hr />
-        <footer>Footer</footer>
+        <main className="p-5">
+        <Filter />
+          <Products />
+          <Cart />
+        </main>
       </Provider>
     </>
   );
