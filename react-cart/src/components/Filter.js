@@ -14,18 +14,17 @@ const Filter = ({ size, sort, products, filteredProducts}) => {
     }
    
     return ( 
-        <div>
-            <div className='filter-result'>{filterProducts.length} Products</div>
-            <div className='filter-sort'>
-                Order <select value={sort} onChange={(e)=>getSorterVals(filteredProducts, e.target.value)}>
+        <div className="col-12 row mb-5 p-0">
+            <div className='filter-sort col-6'>
+                Order by Price<select className="custom-select" value={sort} onChange={(e)=>getSorterVals(filteredProducts, e.target.value)}>
                     <option value="latest">Latest</option>
                     <option value="lowest">Lowest</option>
                     <option value="highest">Highest</option>
                 </select>
             </div>
-            <div className='filter-size'>
-                Filter{" "}
-                <select value={size} onChange={(e)=>getFilterVals(products, e.target.value)}>
+            <div className='filter-size col-6'>
+                Filter By Size{" "}
+                <select className="custom-select" value={size} onChange={(e)=>getFilterVals(products, e.target.value)}>
                     <option value="">ALL</option>
                     <option value="XS">XS</option>
                     <option value="S">S</option>
