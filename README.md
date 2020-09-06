@@ -16,7 +16,7 @@
 
 
 # General info
-Persistant, fully functional shopping cart created with ReactJS, Redux, Local Storage, and SASS.
+Persistant, fully functional shopping cart created with ReactJS Hooks, Redux, Local Storage, and SASS.
 
 ![project screenshot](https://i.imgur.com/VAPes5c.png)
 
@@ -40,6 +40,9 @@ Persistant, fully functional shopping cart created with ReactJS, Redux, Local St
 [NodeJS](https://nodejs.org/en/)
 
 NPM
+
+Local Storage
+
 
 
 
