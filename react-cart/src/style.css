@@ -6,7 +6,7 @@
 main .products {
   column-gap: 10px;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33.3333% 33.3333% 33.3333%;
   row-gap: 40px;
 }
 
@@ -15,10 +15,10 @@ main .products img {
 }
 
 main .cart {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
   border: 1px solid;
   border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba 0, 0, 0, 0.45;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
   height: auto;
   max-height: 750px;
   overflow-x: hidden;

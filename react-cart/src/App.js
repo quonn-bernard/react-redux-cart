@@ -23,7 +23,7 @@ const App = () => {
         <main className="p-5">
         <Filter />
           <Products />
-          <Cart />
+          <Cart count={count}/>
         </main>
       </Provider>
     </>

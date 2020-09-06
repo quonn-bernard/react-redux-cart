@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../components/types";
+import { ADD_TO_CART, REMOVE_FROM_CART, REMOVE_1_FROM_CART } from "../components/types";
 
 export const addToCart = (product) => (dispatch, getState) => {
   const cartItems = getState().cart.cartItems.slice();
@@ -24,5 +24,19 @@ export const removeFromCart = (product) => (dispatch, getState) => {
     .cart.cartItems.slice()
     .filter((x) => x._id !== product._id);
   dispatch({ type: REMOVE_FROM_CART, payload: { cartItems } });
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
+
+export const removeAnItemFromCart = (product) => (dispatch, getState) => {
+  const cartItems = getState()
+    .cart.cartItems.slice()
+    .filter((x) => {
+      if(x._id === product._id){
+        product.count = product.count - 1
+      }  
+     return product
+    });
+    
+  dispatch({ type: REMOVE_1_FROM_CART, payload: { cartItems } });
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };

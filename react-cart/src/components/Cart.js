@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useCustomForm from "../hooks/useCustomForm";
 import Fade from "react-reveal/Fade";
 import { connect, useDispatch } from "react-redux";
-import { removeFromCart } from "../actions/cartActions";
+import { removeFromCart, addToCart, removeAnItemFromCart } from "../actions/cartActions";
 import { Button } from "react-bootstrap";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
-const Cart = ({ cartItems, remove, createOrder }) => {
+const Cart = ({ cartItems, remove, createOrder, count }) => {
   const dispatch = useDispatch();
   const [showCheckout, setShowCheckout] = useState(false);
+  const [cartCount, setCartCount] = useState();
+  useEffect(()=>{
+    setCartCount(cartItems.length)
+  },[cartItems.length])
   const initialValues = {
     email: "",
     name: "",
@@ -29,9 +33,18 @@ const Cart = ({ cartItems, remove, createOrder }) => {
     handleSubmit(e);
   };
 
+  const add = (item) => {
+    dispatch(addToCart(item));
+  };
+
   const removeItem = (item) => {
     dispatch(removeFromCart(item));
   };
+
+  const removeSingleItem = (item) => {
+    dispatch(removeAnItemFromCart(item));
+    console.log(cartCount)
+  }; 
 
   const showForm = () => {
     setShowCheckout((prevState) => !prevState);
@@ -49,8 +62,8 @@ const Cart = ({ cartItems, remove, createOrder }) => {
             </h1>
           </h5>
           <hr />
-          {cartItems.map((item) => (
-            <li key={item._id}>
+          { cartItems.map((item) => (
+            item.count > 0 && <li key={item._id}>
               <div className="d-flex flex-col">
                 <img alt={item.title} src={item.image} />
                 <div
@@ -61,18 +74,20 @@ const Cart = ({ cartItems, remove, createOrder }) => {
                     <h6 className="mb-0 pb-0">
                       <strong>{item.title}</strong>
                     </h6>
-                    <p> X {item.count} </p>
+          <p> X {item.count} = <span className="text-success">${item.count * item.price}</span> </p>
                   </div>
                   <div
                     style={{ height: "50px", maxWidth: "21px" }}
                     className="border"
                   >
                     <TiArrowSortedUp
+                    onClick={() => add(item)}
                       size="1.5rem"
                       className="pr-1 mb-0 pb-0 d-block"
                       color="#28a745"
                     />
                     <TiArrowSortedDown
+                    onClick={() => removeSingleItem(item)}
                       size="1.5rem"
                       className="pr-1 mt-0 pt-0"
                       color="#28a745"
@@ -82,7 +97,7 @@ const Cart = ({ cartItems, remove, createOrder }) => {
               </div>
               <Button
                 onClick={() => removeItem(item)}
-                className="btn-dark btn-sm btn-block mb-3"
+                className="border btn-dark btn-sm btn-block mb-3"
               >
                 <span>
                   <AiFillMinusCircle
@@ -94,10 +109,8 @@ const Cart = ({ cartItems, remove, createOrder }) => {
                 </span>
               </Button>
             </li>
-          ))}
-          {cartItems.length === 0 && (
-            <p className="text-danger">CART IS EMPTY</p>
-          )}
+          ))} 
+         {count < 1 && <p className="text-danger"><strong>CART IS EMPTY</strong></p>}
           {showCheckout && cartItems.length > 0 && (
             <Fade right cascade>
               <hr />
@@ -122,7 +135,7 @@ const Cart = ({ cartItems, remove, createOrder }) => {
             </Fade>
           )}
           <hr className="mt-0 pt-0" />
-          {cartItems.length && (
+          {count > 0 && (
             <Button
               className="btn btn-block btn-success checkoutbtn"
               onClick={() => showForm()}
@@ -140,5 +153,5 @@ export default connect(
   (state) => ({
     cartItems: state.cart.cartItems,
   }),
-  { removeFromCart }
+  { removeFromCart, addToCart, removeAnItemFromCart }
 )(Cart);
