@@ -35,6 +35,8 @@ Persistant, fully functional shopping cart created with ReactJS Hooks, Redux, Lo
 
 [SASS](https://reactjs.org/docs/hooks-reference.html#usestate)
 
+[React Bootstrap](https://react-bootstrap.github.io/)
+
 [React Icons](https://react-icons.github.io/react-icons/)
 
 [NodeJS](https://nodejs.org/en/)
@@ -54,11 +56,11 @@ Local Storage
 
 "ORDER_PRODUCTS_BY_PRICE" - mutates store (products)
 
-"ADD_TO_CART" - mutates state (cart.cartItems)
+"ADD_TO_CART" - mutates state (cart.cartItems) then stores in local storage ("cart items")
 
-"REMOVE_FROM_CART" - mutates store (cart.cartItems)
+"REMOVE_FROM_CART" - mutates store (cart.cartItems) then stores in local storage ("cart items")
 
-"REMOVE_1_FROM_CART" - mutates store (cart.cartItems)
+"REMOVE_1_FROM_CART" - mutates store (cart.cartItems) then stores in local storage ("cart items")
 
 "TOGGLE_CART" - will be implemented in the future.
 
