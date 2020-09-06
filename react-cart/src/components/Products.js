@@ -83,7 +83,7 @@ const Products = ({ products }) => {
               </p>
               <button
                 onClick={() => {
-                  addToCart(product);
+                  addItem(product);
                   closeModal();
                 }}
               >
