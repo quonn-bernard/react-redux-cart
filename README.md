@@ -25,6 +25,12 @@ Persistant, fully functional shopping cart created with ReactJS, Redux, Local St
 # Technology
 [ReactJS](https://reactjs.org)
 
+[React Hooks](https://reactjs.org/docs/hooks-intro.html)
+
+[React Reveal Animations](https://www.react-reveal.com/) 
+
+[PICSUM Random Img Generator](https://picsum.photos/)
+
 [REDUX](https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook)
 
 [SASS](https://reactjs.org/docs/hooks-reference.html#usestate)
@@ -33,7 +39,7 @@ Persistant, fully functional shopping cart created with ReactJS, Redux, Local St
 
 [NodeJS](https://nodejs.org/en/)
 
-npm
+NPM
 
 
 
