@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "_id": "dress1",
+      "_id": "random-image",
       "image": "https://picsum.photos/300/300?random=1",
       "title": "Random image",
       "description": "about dress 1",
@@ -9,7 +9,7 @@
       "price": 30.0
     },
     {
-      "_id": "dress2",
+      "_id": "some-other-picture",
       "image": "https://picsum.photos/300/300?random=2",
       "title": "Some other picture",
       "description": "about dress 2",
@@ -17,7 +17,7 @@
       "price": 50.0
     },
     {
-        "_id": "dress3",
+        "_id": "yet-another-random-photo",
         "image": "https://picsum.photos/300/300?random=3",
         "title": "Yet another random photo",
         "description": "about dress 3",
@@ -25,7 +25,7 @@
         "price": 10.0
       },
       {
-        "_id": "dress4",
+        "_id": "not-the-same-photograph",
         "image": "https://picsum.photos/300/300?random=4",
         "title": "Not the same photograph",
         "description": "about dress 4",
@@ -33,7 +33,7 @@
         "price": 150.0
       },
       {
-        "_id": "dress5",
+        "_id": "yet-another-rando-pic",
         "image": "https://picsum.photos/300/300?random=5",
         "title": "Yet another rando...",
         "description": "about dress 5",
@@ -41,7 +41,7 @@
         "price": 75.0
       },
       {
-        "_id": "dress6",
+        "_id": "the-last-pic-finally",
         "image": "https://picsum.photos/300/300?random=6",
         "title": "The Last pic, Finally!!",
         "description": "about dress 6",
