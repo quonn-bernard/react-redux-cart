@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Fade, Zoom } from "react-reveal";
 import Modal from "react-modal";
 import { connect, useDispatch } from "react-redux";
-import { fetchProducts } from "../actions/productActions";
-import { addToCart } from "../actions/cartActions";
+import { fetchProducts } from "../redux/actions/productActions";
+import { addToCart } from "../redux/actions/cartActions";
 import { Button } from "react-bootstrap";
 
-const Products = ({ products, add }) => {
+const Products = ({ products }) => {
   const [product, setProduct] = useState(null);
   const openModal = (product) => {
     setProduct(product);
@@ -26,7 +26,6 @@ const Products = ({ products, add }) => {
 
   const renderProducts = () => {
     return products.map((product) => {
-      console.log(Array.isArray(Object.values(product.availableSizes)))
       return (
         <li key={product._id}>
           <a href={"#" + product._id} onClick={() => openModal(product)}>
@@ -56,7 +55,6 @@ const Products = ({ products, add }) => {
   return (
     <div>
       <Fade bottom cascade>
-        {/* <div>Loading...</div> */}
         <ul className="list-unstyled products">
           {products ? renderProducts() : <div>Loading...</div>}
         </ul>

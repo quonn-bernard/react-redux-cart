@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, REMOVE_1_FROM_CART } from "../components/types";
+import { ADD_TO_CART, REMOVE_FROM_CART, REMOVE_1_FROM_CART } from "../types";
 
 export const addToCart = (product) => (dispatch, getState) => {
   const cartItems = getState().cart.cartItems.slice();

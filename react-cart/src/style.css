@@ -20,13 +20,13 @@ main .cart {
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
   height: auto;
-  max-height: 750px;
+  max-height: 500px;
+  min-width: 345px;
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
   right: 20px;
   top: 80px;
-  width: auto;
 }
 
 main .cart Button {

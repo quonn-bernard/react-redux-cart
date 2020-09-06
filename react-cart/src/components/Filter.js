@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { filterProducts, sortProducts } from "../actions/productActions";
+import { filterProducts, sortProducts } from "../redux/actions/productActions";
 
 const Filter = ({ size, sort, products, filteredProducts}) => {
     const dispatch = useDispatch()

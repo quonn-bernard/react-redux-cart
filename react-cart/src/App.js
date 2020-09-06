@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
-import store from "./store";
+import store from "./redux/store";
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";

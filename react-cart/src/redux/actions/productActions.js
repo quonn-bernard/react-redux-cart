@@ -2,7 +2,7 @@ import {
   FETCH_PRODUCTS,
   FILTER_PRODUCTS_BY_SIZE,
   ORDER_PRODUCTS_BY_PRICE,
-} from "../components/types";
+} from "../types";
 
 export const fetchProducts = () => async (dispatch) => {
   const result = await fetch("data/data.json");

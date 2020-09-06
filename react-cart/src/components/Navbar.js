@@ -11,8 +11,10 @@ const AppNav = ({ count }) => {
         className="navbar d-flex justify-content-between position-fixed col-12"
         variant="dark"
       >
-          <FaReact color="#28a745" spin size="3rem" />
-        <Navbar.Brand href="#home"><h2>React-Redux Shopping Cart</h2></Navbar.Brand>
+        <FaReact color="#28a745" spin size="3rem" />
+        <Navbar.Brand href="#home">
+          <h2>React-Redux Shopping Cart</h2>
+        </Navbar.Brand>
         <CartLogo color="white" count={count} />
       </Navbar>
     </>

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import useCustomForm from "../hooks/useCustomForm";
 import Fade from "react-reveal/Fade";
 import { connect, useDispatch } from "react-redux";
-import { removeFromCart, addToCart, removeAnItemFromCart } from "../actions/cartActions";
+import { removeFromCart, addToCart, removeAnItemFromCart } from "../redux/actions/cartActions";
 import { Button } from "react-bootstrap";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
-const Cart = ({ cartItems, remove, createOrder, count }) => {
+const Cart = ({ cartItems, createOrder, count }) => {
   const dispatch = useDispatch();
   const [showCheckout, setShowCheckout] = useState(false);
   const [cartCount, setCartCount] = useState();
@@ -55,12 +55,10 @@ const Cart = ({ cartItems, remove, createOrder, count }) => {
       <Fade right cascade>
         {" "}
         <ul className="cart list-unstyled p-3">
-          <h5 className="m-0 p-0">
             {" "}
-            <h1 className="text-center font-weight-bold text-success">
+            <h1 className="pb-0 mb-0 text-center font-weight-bold text-success">
               ${cartItems.reduce((a, c) => a + c.price * c.count, 0)}
             </h1>
-          </h5>
           <hr />
           { cartItems.map((item) => (
             item.count > 0 && <li key={item._id}>
@@ -110,7 +108,7 @@ const Cart = ({ cartItems, remove, createOrder, count }) => {
               </Button>
             </li>
           ))} 
-         {count < 1 && <p className="text-danger"><strong>CART IS EMPTY</strong></p>}
+         {count < 1 && <h3 className="text-danger h4 d-block text-center">CART IS EMPTY</h3>}
           {showCheckout && cartItems.length > 0 && (
             <Fade right cascade>
               <hr />
