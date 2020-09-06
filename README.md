@@ -58,7 +58,7 @@ npm
 
 Step 1. Clone this repository
 
-Step 2. cd into new directory, then cd into useopen
+Step 2. cd into new directory, then cd into react-cart
 
 Step 3. run 'npm install' command in your terminal
 
